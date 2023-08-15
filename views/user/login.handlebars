@@ -1,15 +1,21 @@
- <div class="menu-container">
-      <div class="card-header col-md-10"  style="display: flex; justify-content: center;align-items: center;">
-        <button >Login</button>
-      </div>
-      <div class="card-header col-md-10"  style="display: flex; justify-content: center;align-items: center;">
-        <button style="">Register</button>
-      </div>
-      <div  style="display: flex; justify-content: center;align-items: center;">
-        <img src="./images/buff-man.jpg" alt="buff-man-icon" >
-      </div>
-
-      {{!-- add form  --}}
-
-      {{!-- include button link for signup, have it take them to signup form --}}
- </div>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration</title>
+</head>
+<body>
+    <h1>User Registration</h1>
+    <form id="registration-form" method="POST" action="/register">
+        <label for="username">Username:</label>
+        <input type="text" name="username" required>
+        <br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" name="password" required>
+        <br>
+        <button type="submit">Register</button>
+    </form>
+</body>
+</html>
