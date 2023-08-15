@@ -1,20 +1,30 @@
 const path = require('path');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
-const app = express();
-const PORT = process.env.PORT || 3001;
 const sequelize = require('./config/connection');
 
-app.engine('handlebars', hbs.engine);
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+// Middleware
+app.use(express.json()); // JSON parsing
+app.use(express.urlencoded({ extended: false })); // URL-encoded parsing
+app.use(express.static(path.join(__dirname, 'public'))); // Static files
+
+// Handlebars configuration
+app.engine('handlebars', exphbs());
 app.set('view engine', 'handlebars');
 
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+// Routes
+app.use(require('./controllers'));
 
-app.use(require('./controllers/'));
-
-sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
-});
+// Start the server after syncing the database
+sequelize.sync({ force: false })
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`Server listening on port ${PORT}`);
+        });
+    })
+    .catch(err => {
+        console.error('Database connection error:', err);
+    });

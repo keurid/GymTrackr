@@ -1,0 +1,16 @@
+<!-- views/partials/header.handlebars -->
+<header>
+    <nav>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/workouts">Workouts</a></li>
+            <li><a href="/exercises">Exercises</a></li>
+            {{#if loggedIn}}
+                <li><a href="/logout">Logout</a></li>
+            {{else}}
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Register</a></li>
+            {{/if}}
+        </ul>
+    </nav>
+</header>
