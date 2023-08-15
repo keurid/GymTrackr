@@ -24,7 +24,7 @@ module.exports = {
                 return;
             }
 
-            const validPassword = user.checkPassword(req.body.password);
+            const validPassword = await bcrypt.compare(req.body.password, user.password);
 
             if (!validPassword) {
                 res.status(400).json({ message: 'Incorrect password!' });
