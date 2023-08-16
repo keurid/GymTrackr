@@ -34,7 +34,7 @@ Exercise.init({
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'exercise',
   });
 
 module.exports = Exercise;
