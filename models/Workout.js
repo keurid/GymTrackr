@@ -1,8 +1,10 @@
-const { DataTypes } = require('sequelize');
-const sequelize = require('../config/database');
-const User = require('./User');
+const { Model, DataTypes } = require('sequelize');
+const sequelize = require('../config/connection');
 
-const Workout = sequelize.define('Workout', {
+
+
+class Workout extends Model { };
+Workout.init({
     id: {
         type: DataTypes.INTEGER,
         allowNull: false,
@@ -16,14 +18,23 @@ const Workout = sequelize.define('Workout', {
             key: 'id',
         },
     },
-    name: { 
-        type: DataTypes.STRING, 
-        allowNull: false 
+    name: {
+        type: DataTypes.STRING,
+        allowNull: false
     },
-    date: { 
-        type: DataTypes.DATE, 
-        defaultValue: DataTypes.NOW 
+    date: {
+        type: DataTypes.DATE,
+        defaultValue: DataTypes.NOW
     },
-});
+
+},
+    {
+        sequelize,
+        timestamps: false,
+        freezeTableName: true,
+        underscored: true,
+        modelName: 'workout',
+    }
+);
 
 module.exports = Workout;

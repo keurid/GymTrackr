@@ -12,11 +12,12 @@ app.use(express.urlencoded({ extended: false })); // URL-encoded parsing
 app.use(express.static(path.join(__dirname, 'public'))); // Static files
 
 // Handlebars configuration
-app.engine('handlebars', exphbs());
+const hbs = exphbs.create()
+app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
 // Routes
-app.use(require('./controllers'));
+app.use(require('./controllers/api'));
 
 // Start the server after syncing the database
 sequelize.sync({ force: false })
