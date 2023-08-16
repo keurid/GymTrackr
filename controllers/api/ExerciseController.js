@@ -3,6 +3,7 @@ const { where } = require('sequelize');
 const { Exercise } = require('../../models');
 
 router.post('/', async (req, res) =>{
+    console.log(req.body)
     try {
         const exerciseData = await Exercise.create({...req.body, workout_id: req.params.workout_id,});
         res.status(200).json(exerciseData);
