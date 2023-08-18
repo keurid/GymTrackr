@@ -1,0 +1,22 @@
+{{> header}}
+
+<main>
+    {{#if loggedIn}}
+    <form action="/add-workout" method="post">
+        <label for="exercise">Exercise:</label>
+        <input type="text" name="exercise" required>
+
+        <label for="repetitions">Repetitions:</label>
+        <input type="number" name="repetitions" required>
+
+        <label for="sets">Sets:</label>
+        <input type="number" name="sets" required>
+
+        <button type="submit" class="btn">Add Workout</button>
+    </form>
+    {{#else}}
+    Please log in at <a href="/login">our login page.</a>
+    {{/if}}
+</main>
+
+{{> footer}}
