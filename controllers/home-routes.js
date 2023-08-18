@@ -1,5 +1,7 @@
 const { Workout, User, Exercise } = require('../models');
 const router = require('express').Router();
+const withAuth = require('../utils/auth');
+
 
 router.get('/', async(req, res) => {
     try {
@@ -8,6 +10,25 @@ router.get('/', async(req, res) => {
         res.json('LOGIN render error')
     }
 })
+
+router.get('/profile', withAuth, async (req, res) => {
+    try {
+      // Find the logged in user based on the session ID
+      const userData = await User.findByPk(req.session.user_id, {
+        attributes: { exclude: ['password'] },
+        include: [{ model: Workout }],
+      });
+  
+      const user = userData.get({ plain: true });
+  
+      res.render('profile', {
+        ...user,
+        logged_in: true
+      });
+    } catch (err) {
+      res.status(500).json(err);
+    }
+  });
 
 router.get('/workouts', async(req, res) => {
     try {
