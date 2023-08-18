@@ -2,13 +2,13 @@ const newFormHandler = async (event) => {
   event.preventDefault();
 
   const name = document.querySelector('#workout-name').value.trim();
-  const needed_funding = document.querySelector('#workout-funding').value.trim();
-  const description = document.querySelector('#workout-desc').value.trim();
+  const reps = document.querySelector('#workout-reps').value.trim();
+  const sets = document.querySelector('#workout-sets').value.trim();
 
-  if (name && needed_funding && description) {
+  if (name && reps && sets) {
     const response = await fetch(`/api/workouts`, {
       method: 'POST',
-      body: JSON.stringify({ name, needed_funding, description }),
+      body: JSON.stringify({ name, reps, sets }),
       headers: {
         'Content-Type': 'application/json',
       },

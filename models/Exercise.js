@@ -25,9 +25,7 @@ Exercise.init({
         type: DataTypes.STRING, 
         allowNull: false 
     },
-    // description: DataTypes.STRING,
-    // imageUrl: DataTypes.STRING,
-    // videoUrl: DataTypes.STRING,
+    
 },
 {
     sequelize,
