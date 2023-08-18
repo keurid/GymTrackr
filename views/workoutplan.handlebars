@@ -1,0 +1,19 @@
+{{!< layouts/main}}
+{{#*inline "body"}}
+    <h1>Create Your Workout Plan</h1>
+    <form action="/save-workout-plan" method="POST" id="workout-plan-form">
+        <div>
+            <label for="workoutName">Workout Name:</label>
+            <input type="text" name="workoutName" id="workoutName" required>
+        </div>
+        <div>
+            <label for="repetitions">Repetitions:</label>
+            <input type="number" name="repetitions" id="repetitions" required>
+        </div>
+        <div>
+            <label for="sets">Sets:</label>
+            <input type="number" name="sets" id="sets" required>
+        </div>
+        <button type="submit">Save Workout Plan</button>
+    </form>
+{{/inline}}
