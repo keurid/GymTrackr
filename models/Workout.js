@@ -26,6 +26,14 @@ Workout.init({
         type: DataTypes.DATE,
         defaultValue: DataTypes.NOW
     },
+    sets: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    },
+    reps: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+    }
 
 },
     {
