@@ -1,5 +1,6 @@
 const path = require('path');
 const express = require('express');
+const session = require('express-session');
 const exphbs = require('express-handlebars');
 const sequelize = require('./config/connection');
 const routes = require('./controllers')
@@ -10,6 +11,15 @@ const PORT = process.env.PORT || 3001;
 app.use(express.json()); // JSON parsing
 app.use(express.urlencoded({ extended: false })); // URL-encoded parsing
 app.use(express.static(path.join(__dirname, 'public'))); // Static files
+
+//  Set up sessions
+const sess = {
+    secret: 'Secret gym data',
+    resave: false,
+    saveUninitialized: false,
+};
+
+app.use(session(sess));
 
 // Handlebars configuration
 const hbs = exphbs.create()
