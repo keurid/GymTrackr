@@ -6,37 +6,39 @@
 
 <div class="row mt-4">
   <div class="col-md-6">
-    <h3>Create a New workout:</h3>
-
-    <form class="form new-workout-form">
-      <div class="form-group">
-        <label for="workout-name">workout name:</label>
-        <input class="form-input" type="text" id="workout-name" name="workout-name" />
+    <div class="card">
+      <div class="card-body">
+        <h3>Create a New Workout</h3>
+        <form class="form new-workout-form">
+          <div class="form-group">
+            <label for="workout-name">Workout Name:</label>
+            <input class="form-control" type="text" id="workout-name" name="workout-name" />
+          </div>
+          <div class="form-group">
+            <label for="workout-reps">Reps:</label>
+            <input class="form-control" type="number" id="workout-reps" name="workout-reps" />
+          </div>
+          <div class="form-group">
+            <label for="workout-sets">Sets:</label>
+            <input class="form-control" type="number" id="workout-sets" name="workout-sets" />
+          </div>
+          <div class="form-group">
+            <button type="submit" class="btn btn-primary">Create</button>
+          </div>
+        </form>
       </div>
-      <div class="form-group">
-        <label for="workout-reps">reps:</label>
-        <input class="form-input" type="number" id="workout-reps" name="workout-reps" />
-      </div>
-      <div class="form-group">
-        <label for="workout-sets">sets:</label>
-        <textarea class="form-input" id="workout-sets" name="workout-sets"></textarea>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Create</button>
-      </div>
-    </form>
+    </div>
   </div>
 
   {{#if workouts.length}}
   <div class="col-md-6 workout-list">
-    <h3>Current workouts:</h3>
-
+    <h3>Current Workouts</h3>
     {{#each workouts as |workout|}}
-    <div class="row mb-2">
-      <div class="col-md-8">
+    <div class="card mb-3">
+      <div class="card-body">
         <h4><a href="/workout/{{workout.id}}">{{workout.name}}</a></h4>
-      </div>
-      <div class="col-md-4">
+        <p><strong>Reps:</strong> {{workout.reps}}</p>
+        <p><strong>Sets:</strong> {{workout.sets}}</p>
         <button class="btn btn-sm btn-danger" data-id="{{workout.id}}">DELETE</button>
       </div>
     </div>
