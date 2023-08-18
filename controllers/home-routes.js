@@ -4,12 +4,12 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/', async(req, res) => {
-    try {
-        res.render('register')
-    } catch (error) {
-        res.json('LOGIN render error')
+    if (req.session.loggedIn){
+        res.redirect('/profile');
+        return;
     }
-})
+    res.render('login_register')
+});
 
 router.get('/profile', withAuth, async (req, res) => {
     try {
