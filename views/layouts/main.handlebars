@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>{{pageTitle}}</title>
-  <!-- Include CSS and other assets -->
+    <title>{{pageTitle}}</title>
+    <script src="/public/javascript/main.js"></script>
 </head>
 <body>
-  {{> header}}
-
-  {{body}}
-
-  {{> footer}}
-
-  <!-- Include scripts -->
+    {{>header}}
+    
+    <div class="content">
+        {{{body}}}
+    </div>
+    
+    {{>footer}}
 </body>
 </html>

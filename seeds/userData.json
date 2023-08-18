@@ -1,26 +1,26 @@
 [
     {
-      "name": "Sal",
+      "username": "Sal",
       "email": "placeholder@gmail.com",
       "password": "password12345"
     },
     {
-      "name": "Lernantino",
+      "username": "Lernantino",
       "email": "lerna@gmail.com",
       "password": "password12345"
     },
     {
-      "name": "Amiko",
+      "username": "Amiko",
       "email": "amiko@gmail.com",
       "password": "password12345"
     },
     {
-      "name": "Jordan",
+      "username": "Jordan",
       "email": "placeholder2@gmail.com",
       "password": "password12345"
     },
     {
-      "name": "Blake",
+      "username": "Blake",
       "email": "placeholder3@gmail.com",
       "password": "password12345"
     }
