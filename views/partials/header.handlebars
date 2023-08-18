@@ -1,16 +1,43 @@
 <!-- views/partials/header.handlebars -->
-<header>
+<header class="header">
     <nav>
-        <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/workouts">Workouts</a></li>
-            <li><a href="/exercises">Exercises</a></li>
+        <ul class="nav-list">
+            <li><a class="nav-link" href="/">Home</a></li>
+            <li><a class="nav-link" href="/workouts">Workouts</a></li>
+            <li><a class="nav-link" href="/exercises">Exercises</a></li>
             {{#if loggedIn}}
-                <li><a href="/logout">Logout</a></li>
+                <li><a class="nav-link" href="/logout">Logout</a></li>
             {{else}}
-                <li><a href="/login">Login</a></li>
-                <li><a href="/register">Register</a></li>
+                <li><a class="nav-link" href="/login">Login</a></li>
+                <li><a class="nav-link" href="/register">Register</a></li>
             {{/if}}
         </ul>
     </nav>
 </header>
+
+<style>
+    .header {
+        background-color: #333;
+        color: white;
+        padding: 10px;
+    }
+
+    .nav-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .nav-link {
+        display: block;
+        color: white;
+        text-decoration: none;
+        padding: 10px 15px;
+        transition: background-color 0.3s;
+    }
+
+    .nav-link:hover {
+        background-color: #111;
+    }
+</style>
