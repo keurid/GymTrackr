@@ -1,0 +1,12 @@
+[
+    {
+        "workout_id": 1,
+        "name": "curls",
+        "muscle_group": "bicep"
+    },
+    {
+        "workout_id": 2,
+        "name": "Bench Press",
+        "muscle_group": "Pectoral"
+    }
+]

@@ -2,10 +2,11 @@ const router = require('express').Router();
 const { Workout, User, Exercise } = require('../../models');
 
 router.post('/', async(req, res)=> {
+    console.log (req.body)
     try {
         const workoutData = await Workout.create({
             ...req.body,
-            user_id: req.session.user_id,
+           // user_id: req.session.user_id,
         });
         res.status(200).json(workoutData);
     } catch (error) {
